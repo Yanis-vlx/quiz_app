@@ -1,4 +1,3 @@
-// src/Answer.php
 <?php
 class Answer {
     private $conn;

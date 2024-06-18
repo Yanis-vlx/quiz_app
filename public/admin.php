@@ -1,4 +1,3 @@
-<!-- public/admin.php -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -1,4 +1,3 @@
-// public/process_quiz.php
 <?php
 require_once '../config/db.php';
 require_once '../src/Quiz.php';

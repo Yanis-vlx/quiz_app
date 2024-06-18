@@ -1,4 +1,3 @@
-<!-- public/admin_quiz.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

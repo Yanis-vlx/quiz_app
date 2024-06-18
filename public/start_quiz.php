@@ -1,18 +1,22 @@
-// public/start_quiz.php
 <?php
 require_once '../config/db.php';
 require_once '../src/Quiz.php';
 require_once '../src/QuizQuestion.php';
 
+if (!isset($_GET['id'])) {
+    die('Quiz ID is missing');
+}
+
+$quiz_id = $_GET['id'];
+
 $quiz = new Quiz($conn);
 $quizQuestion = new QuizQuestion($conn);
 
-$quiz_id = $_GET['id'];
 $questions = $quizQuestion->getQuestionsForQuiz($quiz_id);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,11 +88,11 @@ $questions = $quizQuestion->getQuestionsForQuiz($quiz_id);
         showQuestion(currentQuestionIndex);
 
         $('.answer-option').click(function() {
-            let questionId = $(this).closest('.question').data('questions-id');
-            let answerId = $(this).data('answers-id');
+            let questionId = $(this).closest('.question').data('question-id');
+            let answerId = $(this).data('answer-id');
             
             $.ajax({
-                url: '../public/validate_answer.php',
+                url: 'validate_answer.php',
                 type: 'POST',
                 data: {
                     question_id: questionId,

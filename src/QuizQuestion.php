@@ -1,4 +1,3 @@
-// src/QuizQuestion.php
 <?php
 class QuizQuestion {
     private $conn;
@@ -21,7 +20,7 @@ class QuizQuestion {
 
     public function getQuestionsForQuiz($quiz_id) {
         $stmt = $this->conn->prepare("SELECT q.id, q.question, q.category, q.difficulty, 
-                                      (SELECT GROUP_CONCAT(a.answer SEPARATOR '|') FROM answers a WHERE a.questions_id = q.id) as options
+                                      (SELECT GROUP_CONCAT(a.answer SEPARATOR '|') FROM answers a WHERE a.question_id = q.id) as options
                                       FROM questions q JOIN quiz_questions qq ON q.id = qq.question_id WHERE qq.quiz_id = ?");
         $stmt->bind_param("i", $quiz_id);
         $stmt->execute();

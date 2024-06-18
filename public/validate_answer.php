@@ -1,4 +1,3 @@
-// public/validate_answer.php
 <?php
 require_once '../config/db.php';
 require_once '../src/Answer.php';

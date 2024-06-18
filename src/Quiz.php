@@ -1,4 +1,3 @@
-// src/Quiz.php
 <?php
 class Quiz {
     private $conn;
