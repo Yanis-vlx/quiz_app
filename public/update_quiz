@@ -1,0 +1,10 @@
+// public/update_quiz.php
+<?php
+require_once '../config/db.php';
+require_once '../src/Quiz.php';
+
+$quiz = new Quiz($conn);
+$quiz->update($_POST['id'], $_POST['title'], $_POST['description']);
+
+header("Location: ../public/admin_quiz.php");
+?>
